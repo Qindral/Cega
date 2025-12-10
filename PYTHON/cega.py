@@ -185,9 +185,11 @@ if __name__ ==  "__main__":
     import os
     import sys
     # need event loop for gui
+    from pyqtgraph.Qt import QtWidgets  # Change this line
     import pyqtgraph as pg
-    from pyqtgraph.Qt import QtCore, QtGui
-
+    from skimage import io
+    
+    app = QtWidgets.QApplication(sys.argv)  # Change this line
     FileLoc = filedialog.askopenfilename(initialdir = os.getcwd(),
           title = "Select tif movie to analyze",
           filetypes = (("tif","*.tif"),("tiff","*.tiff")))
@@ -220,5 +222,5 @@ if __name__ ==  "__main__":
 # pyqtgraph GUI output
     pg.image(dispMovie)
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
-        QtGui.QApplication.instance().exec_()
+        app.exec_()
 
