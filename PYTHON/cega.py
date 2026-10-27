@@ -212,13 +212,13 @@ if __name__ ==  "__main__":
         FilterMovies['expectedQ'],
         FilterMovies['KLM']*10,
         FilterMovies['ConnectivityFilter']*10,
-        -FilterMovies['LoG']*10),axis=1)
-    dispMovie = np.transpose(dispMovie,(0,2,1))
-# output a movie
-#    import skvideo.io
-#    dispMovie+=20
-#    dispMovie = dispMovie.astype(np.uint8)
-#    skvideo.io.vwrite("cegavideo.mp4",dispMovie)
+        -FilterMovies['LoG']*10), axis=1)
+    dispMovie = np.transpose(dispMovie, (0, 2, 1))
+    # output a movie
+    import skvideo.io
+    dispMovie += 20
+    dispMovie = dispMovie.astype(np.uint8)
+    skvideo.io.vwrite("cegavideo.mp4", dispMovie)
 # pyqtgraph GUI output
     pg.image(dispMovie)
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
